@@ -15,16 +15,14 @@ jobs:
 
       - name: Use Node.js 14
         uses: actions/setup-node@v3
-        run: yarn
         with:
           node-version: 14
           cache: 'yarn'
+      - name: Install dependencies
+        run: yarn ci
 
       - name: Linting
         run: yarn lint
-
-      - name: Install dependencies
-        run: yarn ci
 
       - name: Run tests with code coverage
         run: yarn test:coverage
