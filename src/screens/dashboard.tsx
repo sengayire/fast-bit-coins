@@ -1,10 +1,10 @@
-import React from 'react'
 import { Text, View } from 'react-native'
+import commonStyles from 'src/styles'
 
 const Dashboard = () => {
   return (
     <View>
-      <Text>My dashboard</Text>
+      <Text style={[commonStyles.textColorDarkGray]}>My dashboard</Text>
     </View>
   )
 }
