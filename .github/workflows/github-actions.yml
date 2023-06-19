@@ -1,4 +1,4 @@
-name: Github actions
+name: Github Actions
 
 on:
   pull_request:
@@ -22,13 +22,14 @@ jobs:
       - name: Linting
         run: yarn lint
 
-     - name: Install dependencies
-       run: yarn ci
+      - name: Install dependencies
+        run: yarn ci
 
-     - name: run tests with code coverage
-       run: yarn test:coverage
+      - name: Run tests with code coverage
+        run: yarn test:coverage
 
   coverage:
+    runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v3
-     - uses: ArtiomTr/jest-coverage-report-action@v2
+      - uses: actions/checkout@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2
