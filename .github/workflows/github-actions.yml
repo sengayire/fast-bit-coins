@@ -13,12 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js 14
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
-        run: yarn
         with:
-          node-version: 14
-          cache: 'yarn'
+          node-version: 16
+        run: yarn
 
       - name: Linting
         run: yarn lint
