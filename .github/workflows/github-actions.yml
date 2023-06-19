@@ -1,4 +1,4 @@
-name: Github actions
+name: Github Actions
 
 on:
   pull_request:
@@ -13,22 +13,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js 14
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
           cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn ci
 
       - name: Linting
         run: yarn lint
 
-     - name: Install dependencies
-       run: yarn ci
+      - name: Run tests with code coverage
+        run: yarn test:coverage
 
-     - name: run tests with code coverage
-       run: yarn test:coverage
-
-  coverage:
-    steps:
-     - uses: actions/checkout@v3
-     - uses: ArtiomTr/jest-coverage-report-action@v2
+      - name: Upload code coverage for ref branch
+        uses: actions/upload-artifact@v3
+        with:
+          name: ref-lcov.info
+          path: ./coverage/lcov.info
