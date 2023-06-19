@@ -1,37 +1,25 @@
-import { makeStyles, Button } from '@rneui/themed'
 import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View, Pressable, Text } from 'react-native'
 import { s } from 'react-native-size-matters'
 
 import { colors } from 'src/utils/colors'
 
 interface ButtonProps {
   status?: 'active' | 'disabled'
+  title: string
 }
 
-const CommonButton = ({ status = 'active' }: ButtonProps) => {
-  const styles = useStyles()
+const CommonButton = ({ status = 'active', title }: ButtonProps) => {
   return (
     <View style={{ display: 'flex', alignItems: 'center' }}>
-      <Button buttonStyle={styles.button} type="clear" title="Continue" titleStyle={styles.title}>
-        {/* <Text
-          style={[
-            commonStyles.mdText,
-            status === 'active'
-              ? commonStyles.textColorPrimaryBlack100
-              : commonStyles.textColorPrimaryBlack10,
-            { fontWeight: 600, fontSize: '21px', lineHeight: '32px' }
-          ]}
-        >
-          Continue
-        </Text> */}
-        Continue
-      </Button>
+      <Pressable style={styles.button}>
+        <Text style={styles.title}>{title}</Text>
+      </Pressable>
     </View>
   )
 }
 
-const useStyles = makeStyles(() => ({
+const styles = StyleSheet.create({
   button: {
     display: 'flex',
     alignItems: 'center',
@@ -50,6 +38,6 @@ const useStyles = makeStyles(() => ({
     fontSize: 21,
     lineHeight: 32
   }
-}))
+})
 
 export default CommonButton

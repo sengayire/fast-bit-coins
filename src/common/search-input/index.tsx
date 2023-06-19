@@ -28,7 +28,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
         fontSize: 16,
         lineHeight: 24
       }}
-      leftIcon={<SvgUri uri={svg.uri} />}
+      leftIcon={<SvgUri uri={svg?.uri ?? ''} />}
       leftIconContainerStyle={{ width: 21, height: 21, padding: 18 }}
     />
   )

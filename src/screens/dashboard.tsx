@@ -1,3 +1,4 @@
+import React from 'react'
 import { Text, View } from 'react-native'
 import commonStyles from 'src/styles'
 
@@ -12,7 +13,7 @@ const Dashboard = () => {
       <Text style={[commonStyles.textColorPrimaryYellow100, commonStyles.mdText]}>
         My dashboard
       </Text>
-      <CommonButton status="disabled" />
+      <CommonButton status="disabled" title="Continue" />
       <TextInput placeholder="Enter your email" label="Email" />
       <SearchInput placeholder="Search" />
       <SelectInput placeholder="Search" />

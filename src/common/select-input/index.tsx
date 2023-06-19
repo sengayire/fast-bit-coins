@@ -23,7 +23,7 @@ const SelectInput = ({ placeholder }: SelectInputProps) => {
         borderColor: colors.primaryBlack10
       }}
       inputStyle={[{ padding: 18 }, styles.shadowProp]}
-      rightIcon={<SvgUri uri={svg.uri} />}
+      rightIcon={<SvgUri uri={svg?.uri ?? ''} />}
       rightIconContainerStyle={{ width: 21, height: 21, paddingRight: 18 }}
     />
   )
