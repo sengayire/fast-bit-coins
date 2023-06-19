@@ -18,7 +18,7 @@ interface IFontSize {
 interface ITextType extends TextColors, IFontSize {}
 
 const textColors = Object.keys(colors).map((key: string) => ({
-  [`text${capitalize(key)}`]: { color: colors[key] }
+  [`textColor${capitalize(key)}`]: { color: colors[key] }
 }))
 
 const fontSizes = Object.keys(dimensions).map((key: string) => ({

@@ -2,7 +2,7 @@ type ColorsType = Record<string, string>
 
 export const colors: ColorsType = {
   primaryWhite100: '#FFFFFF',
-  primaryWhite90: '##F7F8F7',
+  primaryWhite90: '#F7F8F7',
   primaryYellow100: '#FFB81C',
   primaryBlack100: '#101820',
   primaryBlack70: '#707070',
