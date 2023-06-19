@@ -9,7 +9,7 @@ type TextColors = Record<string, { [key: string]: string | number }>
 interface IFontSize {
   xsText: { fontSize: number }
   smText: { fontSize: number }
-  msText: { fontSize: number }
+  mdText: { fontSize: number }
   lgText: { fontSize: number }
   xlText: { fontSize: number }
   xxlText: { fontSize: number }

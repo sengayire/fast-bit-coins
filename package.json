@@ -11,7 +11,10 @@
     "check-lint": "eslint './src/**/*{js,ts,jsx,tsx}'",
     "lint": "yarn type-check && yarn check-lint",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "preci": "rm -fr node_modules",
+    "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.6",
