@@ -4,7 +4,7 @@ import commonStyles from 'src/styles'
 const Dashboard = () => {
   return (
     <View>
-      <Text style={[commonStyles.textColorDarkGray]}>My dashboard</Text>
+      <Text style={[commonStyles.textColorDarkGray, commonStyles.mdText]}>My dashboard</Text>
     </View>
   )
 }
