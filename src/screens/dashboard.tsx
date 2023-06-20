@@ -6,6 +6,7 @@ import CommonButton from 'src/common/button'
 import SearchInput from 'src/common/search-input'
 import SelectInput from 'src/common/select-input'
 import TextInput from 'src/common/text-input'
+import Typography from 'src/common/typography'
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
       <Text style={[commonStyles.textColorPrimaryYellow100, commonStyles.mdText]}>
         My dashboard
       </Text>
+      <Typography text="Ipsumsdvahldsjvkbasdbvlabsdhv asdj dS`BJ`jdsasx`kjd``dsbaljkdsbv;asdvca,/sd mz" />
       <CommonButton status="disabled" title="Continue" />
       <TextInput placeholder="Enter your email" label="Email" />
       <SearchInput placeholder="Search" />

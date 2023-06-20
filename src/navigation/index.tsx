@@ -1,10 +1,20 @@
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme, Theme } from '@react-navigation/native'
+
+import { colors } from 'src/utils/colors'
 
 import StackNavigation from './stack-navigation'
 
+const AppTheme: Theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: colors.primaryWhite90 as string
+  }
+}
+
 const Navigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={AppTheme}>
       <StackNavigation />
     </NavigationContainer>
   )
