@@ -6,12 +6,17 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 import { colors } from 'src/utils/colors'
 
 interface SearchInputProps {
-  placeholder: string
+  placeholder?: string
+  onTextChange?: (text: string) => void
 }
 
-const SearchInput = ({ placeholder }: SearchInputProps) => {
+const SearchInput = ({ placeholder, onTextChange }: SearchInputProps) => {
   const test = require('assets/search.svg')
   const svg = resolveAssetSource(test)
+
+  const handleTextChange = (text) => {
+    onTextChange?.(text)
+  }
 
   return (
     <Input
@@ -30,6 +35,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
       }}
       leftIcon={<SvgUri uri={svg?.uri ?? ''} />}
       leftIconContainerStyle={{ width: 21, height: 21, padding: 18 }}
+      onChangeText={(text) => handleTextChange(text)}
     />
   )
 }

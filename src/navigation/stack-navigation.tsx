@@ -51,7 +51,7 @@ const StackNavigation = () => {
           }
         }}
       />
-      <Stack.Screen name="Home" component={Dashboard} />
+      {/* <Stack.Screen name="Home" component={Dashboard} /> */}
     </Stack.Navigator>
   )
 }
