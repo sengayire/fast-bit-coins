@@ -7,12 +7,13 @@ import { colors } from 'src/utils/colors'
 interface ButtonProps {
   status?: 'active' | 'disabled'
   title: string
+  onPress
 }
 
-const CommonButton = ({ status = 'active', title }: ButtonProps) => {
+const CommonButton = ({ status = 'active', title, onPress }: ButtonProps) => {
   return (
     <View style={{ display: 'flex', alignItems: 'center' }}>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.title}>{title}</Text>
       </Pressable>
     </View>
