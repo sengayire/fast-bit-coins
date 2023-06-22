@@ -17,7 +17,7 @@ export const CountriesList = ({ data }: CountriesListProps) => {
 
   console.log('selectedCountry', selectedCountry)
   return (
-    <View>
+    <>
       <View style={{ paddingTop: 18 }}>
         <SearchInput placeholder="Search" onTextChange={(text) => setSearchValue(text)} />
       </View>
@@ -31,6 +31,6 @@ export const CountriesList = ({ data }: CountriesListProps) => {
           showsVerticalScrollIndicator={false}
         />
       </ScrollView>
-    </View>
+    </>
   )
 }
