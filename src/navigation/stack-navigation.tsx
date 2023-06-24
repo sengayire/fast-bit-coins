@@ -34,6 +34,7 @@ const StackNavigation = () => {
                       icon={icon}
                       title={title}
                       options={options}
+                      navigation={navigation}
                     />
                   )
                 }

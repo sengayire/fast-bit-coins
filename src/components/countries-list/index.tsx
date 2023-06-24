@@ -7,15 +7,24 @@ import Item, { ItemProps } from './item'
 
 interface CountriesListProps {
   data: { name: string; image?: string }[]
+  setSelectedCountry?: (item: ItemProps['item']) => void
+  onItemsSelected?: () => void
 }
 
-export const CountriesList = ({ data }: CountriesListProps) => {
+export const CountriesList = ({
+  data,
+  setSelectedCountry,
+  onItemsSelected
+}: CountriesListProps) => {
   const [searchValue, setSearchValue] = useState('')
-  const [selectedCountry, setSelectedCountry] = useState<ItemProps['item']>()
 
   const filteredCountries = data.filter((country) => country?.name.includes(searchValue))
 
-  console.log('selectedCountry', selectedCountry)
+  const handleItemSelected = (item) => {
+    setSelectedCountry?.(item)
+    onItemsSelected?.()
+  }
+
   return (
     <>
       <View style={{ paddingTop: 18 }}>
@@ -24,9 +33,7 @@ export const CountriesList = ({ data }: CountriesListProps) => {
       <ScrollView horizontal={true} contentContainerStyle={{ width: '100%' }}>
         <FlatList
           data={filteredCountries}
-          renderItem={({ item }) => (
-            <Item item={item} onPressItem={(item) => setSelectedCountry(item)} />
-          )}
+          renderItem={({ item }) => <Item item={item} onPressItem={handleItemSelected} />}
           keyExtractor={(item) => item.name}
           showsVerticalScrollIndicator={false}
         />
