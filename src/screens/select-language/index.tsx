@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+
+import SelectLanguageComponent from 'src/components/select-language'
 
 const SelectLanguage = () => {
   return (
-    <View>
-      <Text>SelectLanguage</Text>
+    <View style={{ backgroundColor: '#101820', flex: 1, padding: 24 }}>
+      <SelectLanguageComponent />
     </View>
   )
 }

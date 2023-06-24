@@ -7,14 +7,19 @@ import { colors } from 'src/utils/colors'
 
 interface ModalProps {
   children: ReactNode
-  title: string
-  isVisible: boolean
+  title?: string
+  isVisible?: boolean
+  onBackdropPress?: () => void
 }
 
-const Modal = ({ children, title, isVisible }: ModalProps) => {
+const Modal = ({ children, title, isVisible, onBackdropPress }: ModalProps) => {
   return (
     <SafeAreaView>
-      <BottomSheet isVisible={isVisible} containerStyle={{ backgroundColor: 'transparent' }}>
+      <BottomSheet
+        isVisible={isVisible}
+        containerStyle={{ backgroundColor: 'transparent' }}
+        onBackdropPress={onBackdropPress}
+      >
         <View
           style={{
             backgroundColor: colors.primaryWhite100,

@@ -12,8 +12,8 @@ const Typography = ({ text }: TypographyProps) => {
         style={[
           commonStyles.textColorPrimaryBlack70,
           {
-            paddingLeft: 48,
-            paddingRight: 48,
+            paddingHorizontal: 48,
+            paddingVertical: 19,
             textAlign: 'center',
             fontSize: 14,
             lineHeight: 18,

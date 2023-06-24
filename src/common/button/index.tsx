@@ -7,12 +7,12 @@ import { colors } from 'src/utils/colors'
 interface ButtonProps {
   status?: 'active' | 'disabled'
   title: string
-  onPress
+  onPress?: () => void
 }
 
 const CommonButton = ({ status = 'active', title, onPress }: ButtonProps) => {
   return (
-    <View style={{ display: 'flex', alignItems: 'center' }}>
+    <View style={{ display: 'flex', flexDirection: 'row' }}>
       <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.title}>{title}</Text>
       </Pressable>
@@ -22,16 +22,13 @@ const CommonButton = ({ status = 'active', title, onPress }: ButtonProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    display: 'flex',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
     borderRadius: 5,
     elevation: 3,
     backgroundColor: colors.primaryYellow100,
-    height: s(52),
-    width: s(300)
+    height: s(52)
   },
   title: {
     color: colors.primaryBlack100,

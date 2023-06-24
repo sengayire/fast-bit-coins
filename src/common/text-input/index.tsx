@@ -5,11 +5,12 @@ import { colors } from 'src/utils/colors'
 
 interface TextInputProps {
   label?: string
-  placeholder: string
+  placeholder?: string
   type?: 'text' | 'email' | 'password'
+  onChange?: (text: string) => void
 }
 
-const TextInput = ({ label, placeholder, type = 'text' }: TextInputProps) => {
+const TextInput = ({ label, placeholder, type = 'text', onChange }: TextInputProps) => {
   return (
     <Input
       label={label}
@@ -24,6 +25,7 @@ const TextInput = ({ label, placeholder, type = 'text' }: TextInputProps) => {
         lineHeight: 24
       }}
       secureTextEntry={type === 'password' && true}
+      onChangeText={onChange}
     />
   )
 }

@@ -14,6 +14,7 @@ const StackNavigation = () => {
       {routes.map(({ name, component, title, ShownHeader }) => {
         return (
           <Stack.Screen
+            key={name}
             name={name}
             component={component}
             options={{
@@ -33,6 +34,7 @@ const StackNavigation = () => {
                       icon={icon}
                       title={title}
                       options={options}
+                      navigation={navigation}
                     />
                   )
                 }
