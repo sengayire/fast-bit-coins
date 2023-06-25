@@ -12,6 +12,7 @@ const EmailScreen = () => {
   const handleContinueClicked = () => {
     dispatch(setUserInfo({ email }))
   }
+
   return (
     <WithNavigationContainer
       navigateTo={NEW_ACCOUNT_SCREEN_NAME}
