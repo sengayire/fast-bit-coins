@@ -1,17 +1,22 @@
 import React from 'react'
-import { View } from 'react-native'
 
 import TextInput from 'src/common/text-input'
 
 interface EmailComponentProps {
   setEmail: (text: string) => void
+  errorMessage?: string
 }
 
-const EmailComponent = ({ setEmail }: EmailComponentProps) => {
+const EmailComponent = ({ setEmail, errorMessage }: EmailComponentProps) => {
   return (
-    <View>
-      <TextInput placeholder="Your email address" label="Email" onChange={setEmail} />
-    </View>
+    <>
+      <TextInput
+        placeholder="Your email address"
+        label="Email"
+        onChange={setEmail}
+        errorMessage={errorMessage}
+      />
+    </>
   )
 }
 

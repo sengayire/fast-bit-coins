@@ -8,9 +8,16 @@ interface TextInputProps {
   placeholder?: string
   type?: 'text' | 'email' | 'password'
   onChange?: (text: string) => void
+  errorMessage?: string
 }
 
-const TextInput = ({ label, placeholder, type = 'text', onChange }: TextInputProps) => {
+const TextInput = ({
+  label,
+  placeholder,
+  type = 'text',
+  onChange,
+  errorMessage
+}: TextInputProps) => {
   return (
     <Input
       label={label}
@@ -26,6 +33,7 @@ const TextInput = ({ label, placeholder, type = 'text', onChange }: TextInputPro
       }}
       secureTextEntry={type === 'password' && true}
       onChangeText={onChange}
+      errorMessage={errorMessage}
     />
   )
 }

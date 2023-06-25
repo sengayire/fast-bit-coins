@@ -10,7 +10,6 @@ export const USER_LOGIN = gql`
   ) {
     insert_login(
       objects: {
-        id: 2
         country: $country
         email: $email
         password: $password
@@ -19,11 +18,10 @@ export const USER_LOGIN = gql`
       }
     ) {
       returning {
-        country
         email
-        id
         password
         passwordConfirm
+        country
         state
       }
     }

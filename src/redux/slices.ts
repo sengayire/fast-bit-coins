@@ -5,7 +5,7 @@ const initialState = {
   password: '',
   confirmPassword: '',
   country: '',
-  countryState: ''
+  state: ''
 }
 
 export const userSlice = createSlice({
@@ -13,6 +13,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, { payload }) => {
+      console.log('payload', payload)
       return { ...state, ...payload }
     }
   }

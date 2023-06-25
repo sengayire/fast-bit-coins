@@ -9,11 +9,13 @@ interface WithNavigationContainerProps {
   children: ReactNode
   navigateTo?: string
   onNextClicked?: () => void
+  disabledButton?: boolean
 }
 const WithNavigationContainer = ({
   children,
   navigateTo,
-  onNextClicked
+  onNextClicked,
+  disabledButton
 }: WithNavigationContainerProps) => {
   const { navigate } = useNavigation<NavigationProps>()
   const handleNavigation = () => {
@@ -33,7 +35,7 @@ const WithNavigationContainer = ({
       }}
     >
       {children}
-      <CommonButton title="Continue" onPress={handleNavigation} />
+      <CommonButton title="Continue" onPress={handleNavigation} disabled={disabledButton} />
     </View>
   )
 }

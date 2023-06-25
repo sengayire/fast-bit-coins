@@ -8,13 +8,20 @@ interface ButtonProps {
   status?: 'active' | 'disabled'
   title: string
   onPress?: () => void
+  disabled?: boolean
 }
 
-const CommonButton = ({ status = 'active', title, onPress }: ButtonProps) => {
+const CommonButton = ({ status = 'active', title, onPress, disabled }: ButtonProps) => {
   return (
     <View style={{ display: 'flex', flexDirection: 'row' }}>
-      <Pressable style={styles.button} onPress={onPress}>
-        <Text style={styles.title}>{title}</Text>
+      <Pressable
+        style={disabled ? { ...styles.button, ...styles.disabled } : styles.button}
+        onPress={onPress}
+        disabled={disabled}
+      >
+        <Text style={disabled ? { ...styles.title, ...styles.disabled } : styles.title}>
+          {title}
+        </Text>
       </Pressable>
     </View>
   )
@@ -29,6 +36,10 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: colors.primaryYellow100,
     height: s(52)
+  },
+  disabled: {
+    backgroundColor: colors.primaryBlack10,
+    color: colors.primaryBlack20
   },
   title: {
     color: colors.primaryBlack100,
