@@ -9,18 +9,22 @@ import { setUserInfo } from 'src/redux/slices'
 const NewAccountScreen = () => {
   const dispatch = useDispatch()
 
-  const [userCountry, setUserCountry] = useState<{ countryName: string; state: string }>({
-    countryName: '',
-    state: ''
-  })
+  const [{ countryName, state }, setUserCountry] = useState<{ countryName: string; state: string }>(
+    {
+      countryName: '',
+      state: ''
+    }
+  )
 
   const handleContinueClicked = () => {
-    dispatch(setUserInfo({ country: userCountry.countryName, countryState: userCountry.state }))
+    dispatch(setUserInfo({ country: countryName, state }))
   }
+
   return (
     <WithNavigationContainer
       navigateTo={PASSWORD_SCREEN_NAME}
       onNextClicked={handleContinueClicked}
+      disabledButton={countryName !== 'United States' ? countryName === '' : state === ''}
     >
       <NewAccount setUserCountry={setUserCountry} />
     </WithNavigationContainer>

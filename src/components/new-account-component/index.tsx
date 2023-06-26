@@ -36,10 +36,13 @@ const NewAccount = ({ setUserCountry }: NewAccountPros) => {
       <SelectInput
         placeholder="Select country"
         label="What country do you live in?"
-        onPress={() => setOpenModal(true)}
+        onPress={() => {
+          setOpenModal(true)
+          setShowStates(false)
+        }}
         value={selectedCountry?.name ?? ''}
       />
-      {showStates && (
+      {(showStates || selectedCountry?.name === 'United States') && (
         <SelectInput
           placeholder="Select country"
           label="Which state do you live in?"
@@ -50,7 +53,13 @@ const NewAccount = ({ setUserCountry }: NewAccountPros) => {
       <Modal
         title="Countries"
         isVisible={openModal}
-        onBackdropPress={() => setOpenModal((openModal) => !openModal)}
+        onBackdropPress={() => {
+          setOpenModal((openModal) => !openModal)
+
+          if (selectedState?.name === 'United States') {
+            setShowStates(true)
+          }
+        }}
       >
         <CountriesList
           data={data}

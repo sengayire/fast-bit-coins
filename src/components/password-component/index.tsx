@@ -5,11 +5,17 @@ import TextInput from 'src/common/text-input'
 import Typography from 'src/common/typography'
 
 interface PasswordProps {
-  setUserPassword
+  setPassword: (text: string) => void
+  setConfirmPassword: (text: string) => void
+  passwordError: string
+  confirmPasswordError: string
 }
-const Password = ({ setUserPassword }: PasswordProps) => {
-  // const user = useSelector(({ user }) => user)
-
+const Password = ({
+  setPassword,
+  setConfirmPassword,
+  passwordError,
+  confirmPasswordError
+}: PasswordProps) => {
   return (
     <View>
       <Typography text="Bacon ipsum dolor amet kielbasa filet mignon biltong hamburger tri-tip sirloin." />
@@ -17,27 +23,15 @@ const Password = ({ setUserPassword }: PasswordProps) => {
         label="Please, add your password"
         placeholder="Enter Password"
         type="password"
-        onChange={(text) =>
-          setUserPassword((state) => {
-            return {
-              ...state,
-              password: text
-            }
-          })
-        }
+        onChange={setPassword}
+        errorMessage={passwordError}
       />
       <TextInput
         label="Please, confirm your password"
         placeholder="Confirm Password"
         type="password"
-        onChange={(text) =>
-          setUserPassword((state) => {
-            return {
-              ...state,
-              confirmPassword: text
-            }
-          })
-        }
+        onChange={setConfirmPassword}
+        errorMessage={confirmPasswordError}
       />
     </View>
   )

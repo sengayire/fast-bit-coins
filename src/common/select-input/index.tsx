@@ -38,6 +38,7 @@ const SelectInput = ({ placeholder, label, onPress, value }: SelectInputProps) =
       rightIcon={<SvgUri uri={svg?.uri ?? ''} />}
       rightIconContainerStyle={{ width: 21, height: 21, paddingRight: 18 }}
       value={value}
+      editable={false}
     />
   )
 }
