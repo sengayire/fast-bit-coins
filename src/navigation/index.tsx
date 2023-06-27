@@ -8,7 +8,7 @@ const AppTheme: Theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: colors.primaryWhite90 as string
+    background: colors.primaryWhite90
   }
 }
 

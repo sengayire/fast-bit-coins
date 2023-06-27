@@ -4,6 +4,7 @@ import component from 'src/screens/new-account-screen'
 export default {
   name: NEW_ACCOUNT_SCREEN_NAME,
   title: NEW_ACCOUNT_SCREEN_TITLE,
-  ShownHeader: true,
-  component
+  shownHeader: true,
+  component,
+  protected: false
 }

@@ -1,3 +1,4 @@
+import dashboardRoute from './dashboaard-route'
 import emailRoute from './email-route'
 import newAccountRoute from './new-account-route'
 import passwordRoute from './password-route'
@@ -9,5 +10,6 @@ export default [
   emailRoute,
   newAccountRoute,
   passwordRoute,
-  verificationSuccessRoute
+  verificationSuccessRoute,
+  dashboardRoute
 ]

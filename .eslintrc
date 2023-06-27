@@ -26,5 +26,9 @@
   },
   "globals": {
     "__dirname": true
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
