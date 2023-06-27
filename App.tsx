@@ -1,5 +1,6 @@
 import { ApolloProvider } from '@apollo/client'
 import React from 'react'
+import { RootSiblingParent } from 'react-native-root-siblings'
 import { Provider } from 'react-redux'
 import { apolloClient } from 'src/apollo-client'
 import Navigation from 'src/navigation'
@@ -10,7 +11,9 @@ export default function App() {
   return (
     <Provider store={store}>
       <ApolloProvider client={apolloClient}>
-        <Navigation />
+        <RootSiblingParent>
+          <Navigation />
+        </RootSiblingParent>
       </ApolloProvider>
     </Provider>
   )

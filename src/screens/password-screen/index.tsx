@@ -1,38 +1,58 @@
 import { useMutation } from '@apollo/client'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
 import { useFormik } from 'formik'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import Toast from 'react-native-root-toast'
 import { useDispatch, useSelector } from 'react-redux'
 import { WithNavigationContainer } from 'src/containers'
 import { USER_LOGIN } from 'src/queries'
 
 import Password from 'src/components/password-component'
-import { VERIFICATION_SUCCESS_SCREEN_NAME } from 'src/constants/screens'
+import { EMAIL_SCREEN_NAME, VERIFICATION_SUCCESS_SCREEN_NAME } from 'src/constants/screens'
 import { setUserInfo } from 'src/redux/slices'
-// import { encrypt } from 'src/utils/encryption'
+import { NavigationProps } from 'src/types/screens'
+import { encrypt } from 'src/utils/encryption'
 import { initialValues, validationSchema } from 'src/utils/validation'
 
 const PasswordScreen = () => {
   const dispatch = useDispatch()
-  // const [encryptedPassword, setEncryptedPassword] = useState<{
-  //   password?: string
-  //   confirmPassword?: string
-  // }>({
-  //   password: '',
-  //   confirmPassword: ''
-  // })
+  const [tokenSaved, setTokenSaved] = useState<boolean>(false)
+  const { navigate } = useNavigation<NavigationProps>()
 
   const user = useSelector(({ user }) => user)
 
-  const [login, { data, loading, error }] = useMutation(USER_LOGIN)
+  const [login, { data, loading, error, client }] = useMutation(USER_LOGIN)
 
-  console.log('data', login, data, loading, error)
+  const storeUserToken = async (value) => {
+    try {
+      await AsyncStorage.setItem('user-token', value)
+      setTokenSaved(true)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
-  // encrypt(user?.password).then((hashedPassword) =>
-  //   setEncryptedPassword({ password: hashedPassword })
-  // )
-  // encrypt(user?.confirmPassword).then((hashedPassword) =>
-  //   setEncryptedPassword({ confirmPassword: hashedPassword })
-  // )
+  // const getData = async () => {
+  //   try {
+  //     const token = await AsyncStorage.getItem('my-key')
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
+
+  if (data?.login.userToken) {
+    storeUserToken(data?.login.userToken)
+  }
+
+  if (error) {
+    Toast.show('something is wrong please try again', {
+      onHide: async () => {
+        await client.clearStore()
+        navigate(EMAIL_SCREEN_NAME)
+      }
+    })
+  }
 
   const { handleSubmit, setFieldValue, getFieldMeta } = useFormik({
     initialValues,
@@ -50,28 +70,33 @@ const PasswordScreen = () => {
     setFieldValue('email', user.email)
   }, [setFieldValue, user])
 
-  // useEffect(() => {
-  //   login({
-  //     variables: {
-  //       ...user,
-  //       password: encryptedPassword.password,
-  //       passwordConfirm: encryptedPassword.password
-  //     }
-  //   })
-  // }, [encryptedPassword, user, login])
-
+  useEffect(() => {
+    if (user.confirmPassword) {
+      ;(async () => {
+        const encryptedPassword = await encrypt(user?.password)
+        const encryptedConfirmPassword = await encrypt(user?.confirmPassword)
+        login({
+          variables: {
+            ...user,
+            password: encryptedPassword,
+            passwordConfirm: encryptedConfirmPassword
+          }
+        })
+      })()
+    }
+  }, [user, login])
   return (
     <WithNavigationContainer
-      navigateTo={VERIFICATION_SUCCESS_SCREEN_NAME}
+      navigateTo={tokenSaved ? VERIFICATION_SUCCESS_SCREEN_NAME : ''}
       onNextClicked={handleSubmit}
       disabledButton={
+        loading ||
         !getFieldMeta('password').value ||
         !getFieldMeta('confirmPassword').value ||
         !!getFieldMeta('confirmPassword').error
       }
     >
       <Password
-        // setUserPassword={setUserPassword}
         setPassword={(text: string) => setFieldValue('password', text)}
         setConfirmPassword={(text: string) => setFieldValue('confirmPassword', text)}
         passwordError={getFieldMeta('password').error ?? ''}
