@@ -20,7 +20,9 @@ const WithNavigationContainer = ({
   const { navigate } = useNavigation<NavigationProps>()
   const handleNavigation = () => {
     onNextClicked?.()
-    navigate(navigateTo ?? '')
+    if (navigateTo) {
+      navigate(navigateTo ?? '')
+    }
   }
   return (
     <View

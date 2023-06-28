@@ -4,6 +4,7 @@ import component from 'src/screens/verification-success-screen'
 export default {
   name: VERIFICATION_SUCCESS_SCREEN_NAME,
   title: '',
-  ShownHeader: false,
-  component
+  shownHeader: false,
+  component,
+  protected: false
 }

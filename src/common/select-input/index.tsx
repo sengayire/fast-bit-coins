@@ -1,6 +1,6 @@
 import { Input } from '@rneui/themed'
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { Pressable, StyleSheet } from 'react-native'
 import { SvgUri } from 'react-native-svg'
 
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
@@ -18,28 +18,29 @@ const SelectInput = ({ placeholder, label, onPress, value }: SelectInputProps) =
   const svg = resolveAssetSource(test)
 
   return (
-    <Input
-      onPressIn={onPress}
-      placeholder={placeholder}
-      inputContainerStyle={{
-        borderWidth: 1,
-        borderRadius: 5,
-        borderColor: colors.primaryBlack10
-      }}
-      label={label}
-      labelStyle={{
-        color: colors.primaryBlack70,
-        fontWeight: '600',
-        paddingBottom: 8,
-        fontSize: 16,
-        lineHeight: 24
-      }}
-      inputStyle={[{ padding: 18 }, styles.shadowProp]}
-      rightIcon={<SvgUri uri={svg?.uri ?? ''} />}
-      rightIconContainerStyle={{ width: 21, height: 21, paddingRight: 18 }}
-      value={value}
-      editable={false}
-    />
+    <Pressable onPressIn={onPress} style={{ width: '100%' }}>
+      <Input
+        placeholder={placeholder}
+        inputContainerStyle={{
+          borderWidth: 1,
+          borderRadius: 5,
+          borderColor: colors.primaryBlack10
+        }}
+        label={label}
+        labelStyle={{
+          color: colors.primaryBlack70,
+          fontWeight: '600',
+          paddingBottom: 8,
+          fontSize: 16,
+          lineHeight: 24
+        }}
+        inputStyle={[{ padding: 18 }, styles.shadowProp]}
+        rightIcon={<SvgUri uri={svg?.uri ?? ''} />}
+        rightIconContainerStyle={{ width: 21, height: 21, paddingRight: 18 }}
+        value={value}
+        editable={false}
+      />
+    </Pressable>
   )
 }
 

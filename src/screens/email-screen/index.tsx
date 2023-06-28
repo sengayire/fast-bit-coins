@@ -10,26 +10,22 @@ import { initialValues, validationSchema } from 'src/utils/validation'
 
 const EmailScreen = () => {
   const dispatch = useDispatch()
-  const { setFieldValue, getFieldMeta } = useFormik({
+  const { setFieldValue, getFieldMeta, handleSubmit } = useFormik({
     initialValues,
-    onSubmit: () => {
-      // do nothing
+    onSubmit: (values) => {
+      dispatch(setUserInfo({ email: values.email }))
     },
     validationSchema
   })
 
-  const handleNextClicked = () => {
-    dispatch(setUserInfo({ email: getFieldMeta('email').value }))
-  }
-
   const handleSetEmail = (text) => {
     setFieldValue('email', text)
   }
-  console.log('getFieldMetavalue', getFieldMeta('email').value)
+
   return (
     <WithNavigationContainer
       navigateTo={NEW_ACCOUNT_SCREEN_NAME}
-      onNextClicked={handleNextClicked}
+      onNextClicked={handleSubmit}
       disabledButton={!!getFieldMeta('email').error || !getFieldMeta('email').value}
     >
       <EmailComponent setEmail={handleSetEmail} errorMessage={getFieldMeta('email').error} />

@@ -30,7 +30,12 @@ const SelectLanguage = () => {
       <Text
         style={[
           commonStyles.textColorPrimaryYellow100,
-          { fontWeight: 700, lineHeight: 28, fontSize: 38, paddingVertical: 52 }
+          {
+            fontWeight: 700,
+            lineHeight: 28,
+            fontSize: 32,
+            paddingVertical: 52
+          }
         ]}
       >
         Select your Language
