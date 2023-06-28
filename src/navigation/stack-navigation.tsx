@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { getHeaderTitle } from '@react-navigation/elements'
 import { NativeStackHeaderProps, createNativeStackNavigator } from '@react-navigation/native-stack'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import routes from 'src/routes'
 
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
@@ -12,7 +12,10 @@ const Stack = createNativeStackNavigator()
 
 const StackNavigation = () => {
   const [isAuth, setIsAuth] = useState<boolean>(false)
-  AsyncStorage.getItem('user-token').then((token) => setIsAuth(!!token))
+  useEffect(() => {
+    AsyncStorage?.getItem('user-token').then((token) => setIsAuth(!!token))
+  }, [])
+  console.log('isAuth', isAuth)
   return (
     <Stack.Navigator>
       {routes

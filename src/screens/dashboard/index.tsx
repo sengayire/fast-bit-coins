@@ -1,4 +1,4 @@
-import DashboardComponent from 'src/components/dashbord-component'
+import DashboardComponent from 'src/components/dashboard-component'
 
 const Dashboard = () => {
   return <DashboardComponent />

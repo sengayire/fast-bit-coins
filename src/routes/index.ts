@@ -1,4 +1,4 @@
-import dashboardRoute from './dashboaard-route'
+import dashboardRoute from './dashboard-route'
 import emailRoute from './email-route'
 import newAccountRoute from './new-account-route'
 import passwordRoute from './password-route'

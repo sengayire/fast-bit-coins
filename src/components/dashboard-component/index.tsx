@@ -6,14 +6,15 @@ import React from 'react'
 import { Pressable, Text, View } from 'react-native'
 
 import Typography from 'src/common/typography'
-import { SELECT_LANGUAGE_SCREEN } from 'src/constants/screens'
+import { SELECT_LANGUAGE_SCREEN_NAME } from 'src/constants/screens'
 import { NavigationProps } from 'src/types/screens'
 import { colors } from 'src/utils/colors'
 
 const DashboardComponent = () => {
   const { navigate } = useNavigation<NavigationProps>()
-  const handleLogout = () => {
-    AsyncStorage.removeItem('user-token').then(() => navigate(SELECT_LANGUAGE_SCREEN))
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('user-token')
+    navigate(SELECT_LANGUAGE_SCREEN_NAME)
   }
   const handleRedirect = () => {
     WebBrowser.openBrowserAsync('https://twentyone.money/')

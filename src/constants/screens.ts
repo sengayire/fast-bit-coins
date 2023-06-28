@@ -1,4 +1,4 @@
-export const SELECT_LANGUAGE_SCREEN = 'Language_Screen'
+export const SELECT_LANGUAGE_SCREEN_NAME = 'Language_Screen'
 
 export const EMAIL_SCREEN_NAME = 'Email_Screen'
 export const EMAIL_SCREEN_TITLE = 'Enter your email address'
