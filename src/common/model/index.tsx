@@ -10,9 +10,10 @@ interface ModalProps {
   title?: string
   isVisible?: boolean
   onBackdropPress?: () => void
+  height?: number
 }
 
-const Modal = ({ children, title, isVisible, onBackdropPress }: ModalProps) => {
+const Modal = ({ children, title, isVisible, onBackdropPress, height = 800 }: ModalProps) => {
   return (
     <SafeAreaView>
       <BottomSheet
@@ -23,7 +24,7 @@ const Modal = ({ children, title, isVisible, onBackdropPress }: ModalProps) => {
         <View
           style={{
             backgroundColor: colors.primaryWhite100,
-            height: 800,
+            height,
             borderTopRightRadius: 18,
             borderTopLeftRadius: 18,
             padding: 24
