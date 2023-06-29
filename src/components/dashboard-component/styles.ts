@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   bannerImage: {
     width: '100%',
     height: '80%',
-    resizeMode: 'cover',
+    contentFit: 'cover',
     borderBottomLeftRadius: 200
   },
   logoutButton: {
