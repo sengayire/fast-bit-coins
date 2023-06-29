@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Email component should render email screen 1`] = `
+<View
+  style={
+    {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "justifyContent": "space-between",
+      "paddingHorizontal": 20,
+      "paddingTop": 0,
+      "paddingVertical": 28,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "paddingHorizontal": 10,
+        "width": "100%",
+      }
+    }
+    testID="RNE__Input__view-wrapper"
+  >
+    <Text
+      style={
+        {
+          "color": "#707070",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
+      }
+    >
+      email.label
+    </Text>
+    <View
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#101820",
+          "borderRadius": 5,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "transform": [
+            {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <TextInput
+        editable={true}
+        onChangeText={[Function]}
+        placeholder="email.placeholder"
+        placeholderTextColor="#86939e"
+        secureTextEntry={false}
+        style={
+          {
+            "color": "#242424",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+            "padding": 18,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+    <Text
+      style={
+        {
+          "color": "#ff190c",
+          "fontSize": 12,
+          "margin": 5,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#E7E8E9",
+          "borderRadius": 5,
+          "color": "#CFD1D2",
+          "elevation": 3,
+          "flex": 1,
+          "height": 111.42857142857143,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "backgroundColor": "#E7E8E9",
+            "color": "#CFD1D2",
+            "fontSize": 21,
+            "fontWeight": "600",
+            "lineHeight": 32,
+          }
+        }
+      >
+        language.select.continue.btn
+      </Text>
+    </View>
+  </View>
+</View>
+`;

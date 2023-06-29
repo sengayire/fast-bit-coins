@@ -19,7 +19,7 @@ const Password = ({
 }: PasswordProps) => {
   const { t } = useTranslation()
   return (
-    <View>
+    <View testID="password">
       <Typography text={t('password.text')} />
       <TextInput
         label={t('password.input.label')}

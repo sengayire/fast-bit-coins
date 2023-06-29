@@ -4,7 +4,7 @@ import React from 'react'
 import App from '../App'
 
 describe('App component', () => {
-  it('render app', () => {
+  it('Render app', () => {
     render(<App />)
   })
 })
