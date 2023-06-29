@@ -21,7 +21,7 @@ const languagesList = [
   },
   {
     key: 'fr',
-    name: 'French'
+    name: 'français'
   }
 ]
 

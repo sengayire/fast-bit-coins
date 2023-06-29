@@ -13,8 +13,14 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, { payload }) => {
-      console.log('payload', payload)
       return { ...state, ...payload }
+    },
+    clearUserInfo: (state) => {
+      state.email = ''
+      state.state = ''
+      state.country = ''
+      state.password = ''
+      state.confirmPassword = ''
     }
   }
 })
@@ -23,6 +29,6 @@ const selectUserinfo = (state) => state.user
 
 export const makeSelectUser = createSelector(selectUserinfo, ({ user }) => user)
 
-export const { setUserInfo } = userSlice.actions
+export const { setUserInfo, clearUserInfo } = userSlice.actions
 
 export default userSlice.reducer

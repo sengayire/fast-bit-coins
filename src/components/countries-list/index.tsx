@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FlatList, ScrollView, View } from 'react-native'
 
+import Item, { ItemProps } from 'src/common/item'
 import SearchInput from 'src/common/search-input'
-
-import Item, { ItemProps } from './item'
 
 interface CountriesListProps {
   data: { name: string; image?: string }[]
@@ -16,6 +16,7 @@ export const CountriesList = ({
   setSelectedCountry,
   onItemsSelected
 }: CountriesListProps) => {
+  const { t } = useTranslation()
   const [searchValue, setSearchValue] = useState('')
 
   const filteredCountries = data.filter((country) => country?.name.includes(searchValue))
@@ -28,7 +29,10 @@ export const CountriesList = ({
   return (
     <>
       <View style={{ paddingTop: 18 }}>
-        <SearchInput placeholder="Search" onTextChange={(text) => setSearchValue(text)} />
+        <SearchInput
+          placeholder={t('account.countries.modal.search')}
+          onTextChange={(text) => setSearchValue(text)}
+        />
       </View>
       <ScrollView horizontal={true} contentContainerStyle={{ width: '100%' }}>
         <FlatList

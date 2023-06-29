@@ -9,13 +9,12 @@ interface EmailComponentProps {
 }
 
 const EmailComponent = ({ setEmail, errorMessage }: EmailComponentProps) => {
-  const { t, i18n } = useTranslation()
-  console.log(' t, i18n ', t('home'), i18n)
+  const { t } = useTranslation()
   return (
     <>
       <TextInput
-        placeholder="Your email address"
-        label="Email"
+        placeholder={t('email.placeholder')}
+        label={t('email.label')}
         onChange={setEmail}
         errorMessage={errorMessage}
       />

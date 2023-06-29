@@ -10,7 +10,7 @@ import { USER_LOGIN } from 'src/queries'
 
 import Password from 'src/components/password-component'
 import { EMAIL_SCREEN_NAME, VERIFICATION_SUCCESS_SCREEN_NAME } from 'src/constants/screens'
-import { setUserInfo } from 'src/redux/slices'
+import { clearUserInfo, setUserInfo } from 'src/redux/user-slice'
 import { NavigationProps } from 'src/types/screens'
 import { encrypt } from 'src/utils/encryption'
 import { initialValues, validationSchema } from 'src/utils/validation'
@@ -21,20 +21,14 @@ const PasswordScreen = () => {
 
   const user = useSelector(({ user }) => user)
 
-  const [login, { data, loading, error, client }] = useMutation(USER_LOGIN)
-
-  const storeUserToken = async (value) => {
-    try {
-      await AsyncStorage.setItem('user-token', value)
-      navigate(VERIFICATION_SUCCESS_SCREEN_NAME)
-    } catch (e) {
-      console.log(e)
+  const [login, { loading, error, client }] = useMutation(USER_LOGIN, {
+    onCompleted: (data) => {
+      AsyncStorage.setItem('user-token', data?.login.userToken).then(() => {
+        navigate(VERIFICATION_SUCCESS_SCREEN_NAME)
+        dispatch(clearUserInfo())
+      })
     }
-  }
-
-  if (data?.login.userToken) {
-    storeUserToken(data?.login.userToken)
-  }
+  })
 
   if (error) {
     Toast.show('something is wrong please try again', {

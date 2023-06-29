@@ -5,7 +5,7 @@ import { WithNavigationContainer } from 'src/containers'
 
 import EmailComponent from 'src/components/email-component'
 import { NEW_ACCOUNT_SCREEN_NAME } from 'src/constants/screens'
-import { setUserInfo } from 'src/redux/slices'
+import { setUserInfo } from 'src/redux/user-slice'
 import { initialValues, validationSchema } from 'src/utils/validation'
 
 const EmailScreen = () => {
