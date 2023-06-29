@@ -1,7 +1,7 @@
 import { Input } from '@rneui/themed'
 import React from 'react'
 
-import { colors } from 'src/utils/colors'
+import { styles } from './styles'
 
 interface TextInputProps {
   label?: string
@@ -22,15 +22,9 @@ const TextInput = ({
     <Input
       label={label}
       placeholder={placeholder}
-      inputContainerStyle={{ borderWidth: 1, borderRadius: 5, borderColor: colors.primaryBlack100 }}
-      inputStyle={{ padding: 18 }}
-      labelStyle={{
-        color: colors.primaryBlack70,
-        fontWeight: '600',
-        paddingBottom: 8,
-        fontSize: 16,
-        lineHeight: 24
-      }}
+      inputContainerStyle={styles.inputContainer}
+      inputStyle={styles.input}
+      labelStyle={styles.inputLabel}
       secureTextEntry={type === 'password' && true}
       onChangeText={onChange}
       errorMessage={errorMessage}

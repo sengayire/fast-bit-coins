@@ -11,7 +11,8 @@ import Typography from 'src/common/typography'
 import { SELECT_LANGUAGE_SCREEN_NAME } from 'src/constants/screens'
 import { setIsAuth } from 'src/redux/auth-slice'
 import { NavigationProps } from 'src/types/screens'
-import { colors } from 'src/utils/colors'
+
+import { styles } from './styles'
 
 const DashboardComponent = () => {
   const { t } = useTranslation()
@@ -30,43 +31,16 @@ const DashboardComponent = () => {
   }
   return (
     <View>
-      <Image
-        source={require('assets/dashboard-bg.png')}
-        style={{
-          width: '100%',
-          height: '80%',
-          resizeMode: 'cover',
-          borderBottomLeftRadius: 200
-        }}
-      />
-      <Pressable
-        style={{
-          position: 'absolute',
-          top: 80,
-          right: 20,
-          alignItems: 'center'
-        }}
-        onPress={handleLogout}
-      >
-        <Image
-          source={require('assets/logout.png')}
-          style={{
-            width: 30,
-            height: 30
-          }}
-        />
+      <Image source={require('assets/dashboard-bg.png')} style={styles.bannerImage} />
+      <Pressable style={styles.logoutButton} onPress={handleLogout}>
+        <Image source={require('assets/logout.png')} style={styles.image} />
         <Text>{t('dashboard.logout')}</Text>
       </Pressable>
       <View style={{ paddingTop: 20 }}>
-        <Text style={[{ fontSize: 30, fontWeight: '700', textAlign: 'center' }]}>
-          {t('dashboard.title')}
-        </Text>
+        <Text style={styles.titleText}>{t('dashboard.title')}</Text>
         <Typography text={t('dashboard.text')} />
         <View style={{ paddingHorizontal: 20 }}>
-          <Text
-            style={[{ textAlign: 'right', color: colors.primaryYellow100, fontSize: 15 }]}
-            onPress={handleRedirect}
-          >
+          <Text style={styles.discoverMoreText} onPress={handleRedirect}>
             {t('dashboard.more')}
           </Text>
         </View>

@@ -7,6 +7,8 @@ import commonStyles from 'src/styles'
 
 import { NavigationProps } from 'src/types/screens'
 
+import { styles } from './styles'
+
 interface NavigationHeaderProps {
   options: NativeStackNavigationOptions
   title: string
@@ -23,14 +25,7 @@ const NavigationHeader = ({
 }: NavigationHeaderProps) => {
   return (
     <SafeAreaView style={options.headerStyle}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          padding: 20,
-          alignItems: 'center'
-        }}
-      >
+      <View style={styles.container}>
         <Pressable onPress={() => navigation.goBack()}>
           <SvgUri uri={icon?.uri ?? ''} />
         </Pressable>

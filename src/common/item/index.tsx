@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, Pressable } from 'react-native'
 import commonStyles from 'src/styles'
 
-import { colors } from 'src/utils/colors'
+import { styles } from './styles'
 
 export interface ItemProps {
   item: {
@@ -18,25 +18,9 @@ const Item = ({ item, onPressItem }: ItemProps) => {
     onPressItem?.(pressedItem)
   }
   return (
-    <Pressable
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingBottom: 12,
-        paddingTop: 12,
-        height: 58,
-        borderBottomColor: colors.primaryBlack10,
-        borderBottomWidth: 1
-      }}
-      onPress={() => handleItemPressed(item)}
-    >
+    <Pressable style={styles.container} onPress={() => handleItemPressed(item)}>
       {item?.image && (
-        <View
-          style={{
-            width: 24,
-            height: 24
-          }}
-        >
+        <View style={styles.imageContainer}>
           <Image
             source={{
               uri: item?.image
@@ -45,12 +29,7 @@ const Item = ({ item, onPressItem }: ItemProps) => {
           />
         </View>
       )}
-      <Text
-        style={[
-          commonStyles.textColorPrimaryBlack100,
-          { fontWeight: '700', lineHeight: 30, fontSize: 18, paddingLeft: 12 }
-        ]}
-      >
+      <Text style={[commonStyles.textColorPrimaryBlack100, { ...styles.itemText }]}>
         {item.name}
       </Text>
     </Pressable>

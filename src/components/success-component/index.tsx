@@ -4,36 +4,21 @@ import { Text, View } from 'react-native'
 import { SvgUri } from 'react-native-svg'
 
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
-import { colors } from 'src/utils/colors'
+
+import { styles } from './styles'
 
 const Success = () => {
   const { t } = useTranslation()
   const test = require('assets/success.svg')
   const svg = resolveAssetSource(test)
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
+    <View style={styles.container}>
       <View style={{ padding: 32 }}>
         <SvgUri uri={svg.uri} />
       </View>
-      <Text
-        style={{
-          color: colors.primaryBlack100,
-          fontSize: 30,
-          fontWeight: '700',
-          paddingBottom: 24
-        }}
-      >
-        {t('email.created')}
-      </Text>
-      <Text style={{ color: colors.primaryBlack70, fontSize: 21, lineHeight: 32 }}>
-        {t('email.text')}
-      </Text>
+      <Text style={styles.successText}>{t('email.created')}</Text>
+      <Text style={styles.successDescriptionText}>{t('email.text')}</Text>
     </View>
   )
 }

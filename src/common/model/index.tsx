@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 import { Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { colors } from 'src/utils/colors'
+import { styles } from './styles'
 
 interface ModalProps {
   children: ReactNode
@@ -21,35 +21,10 @@ const Modal = ({ children, title, isVisible, onBackdropPress, height = 800 }: Mo
         containerStyle={{ backgroundColor: 'transparent' }}
         onBackdropPress={onBackdropPress}
       >
-        <View
-          style={{
-            backgroundColor: colors.primaryWhite100,
-            height,
-            borderTopRightRadius: 18,
-            borderTopLeftRadius: 18,
-            padding: 24
-          }}
-        >
+        <View style={[{ height }, styles.modalContainer]}>
           <View style={{ alignItems: 'center' }}>
-            <View
-              style={{
-                backgroundColor: colors.primaryBlack10,
-                width: 82,
-                height: 6,
-                borderRadius: 100
-              }}
-            />
-            <Text
-              style={{
-                paddingTop: 29,
-                color: colors.black,
-                fontWeight: '600',
-                fontSize: 18,
-                lineHeight: 26
-              }}
-            >
-              {title}
-            </Text>
+            <View style={styles.headerContainer} />
+            <Text style={styles.headerTitle}>{title}</Text>
           </View>
           {children}
         </View>
