@@ -25,6 +25,7 @@ exports[`Dashboard component Should render dashboard 1`] = `
     style={
       {
         "borderBottomLeftRadius": 200,
+        "contentFit": "cover",
         "height": "80%",
         "width": "100%",
       }
