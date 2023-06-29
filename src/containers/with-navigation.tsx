@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 
 import CommonButton from 'src/common/button'
@@ -18,6 +19,7 @@ const WithNavigationContainer = ({
   disabledButton
 }: WithNavigationContainerProps) => {
   const { navigate } = useNavigation<NavigationProps>()
+  const { t } = useTranslation()
   const handleNavigation = () => {
     onNextClicked?.()
     if (navigateTo) {
@@ -37,7 +39,11 @@ const WithNavigationContainer = ({
       }}
     >
       {children}
-      <CommonButton title="Continue" onPress={handleNavigation} disabled={disabledButton} />
+      <CommonButton
+        title={t('language.select.continue.btn')}
+        onPress={handleNavigation}
+        disabled={disabledButton}
+      />
     </View>
   )
 }

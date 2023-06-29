@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Text, View } from 'react-native'
 import { SvgUri } from 'react-native-svg'
 
@@ -6,6 +7,7 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 import { colors } from 'src/utils/colors'
 
 const Success = () => {
+  const { t } = useTranslation()
   const test = require('assets/success.svg')
   const svg = resolveAssetSource(test)
   return (
@@ -27,10 +29,10 @@ const Success = () => {
           paddingBottom: 24
         }}
       >
-        Email created!
+        {t('email.created')}
       </Text>
       <Text style={{ color: colors.primaryBlack70, fontSize: 21, lineHeight: 32 }}>
-        Please wait while we redirect you...
+        {t('email.text')}
       </Text>
     </View>
   )

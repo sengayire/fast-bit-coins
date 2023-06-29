@@ -3,19 +3,28 @@ import { useNavigation } from '@react-navigation/native'
 import { Image } from 'expo-image'
 import * as WebBrowser from 'expo-web-browser'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Pressable, Text, View } from 'react-native'
+import { useDispatch } from 'react-redux'
 
 import Typography from 'src/common/typography'
 import { SELECT_LANGUAGE_SCREEN_NAME } from 'src/constants/screens'
+import { setIsAuth } from 'src/redux/auth-slice'
 import { NavigationProps } from 'src/types/screens'
 import { colors } from 'src/utils/colors'
 
 const DashboardComponent = () => {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
   const { navigate } = useNavigation<NavigationProps>()
-  const handleLogout = async () => {
-    await AsyncStorage.removeItem('user-token')
-    navigate(SELECT_LANGUAGE_SCREEN_NAME)
+
+  const handleLogout = () => {
+    AsyncStorage.removeItem('user-token').then(() => {
+      dispatch(setIsAuth(false))
+      navigate(SELECT_LANGUAGE_SCREEN_NAME)
+    })
   }
+
   const handleRedirect = () => {
     WebBrowser.openBrowserAsync('https://twentyone.money/')
   }
@@ -46,19 +55,19 @@ const DashboardComponent = () => {
             height: 30
           }}
         />
-        <Text>Logout</Text>
+        <Text>{t('dashboard.logout')}</Text>
       </Pressable>
       <View style={{ paddingTop: 20 }}>
         <Text style={[{ fontSize: 30, fontWeight: '700', textAlign: 'center' }]}>
-          Fast, Simple and Reliable
+          {t('dashboard.title')}
         </Text>
-        <Typography text="Get started with fast Bit Coin. Enjoy our fast and secure platform  effortlessly." />
+        <Typography text={t('dashboard.text')} />
         <View style={{ paddingHorizontal: 20 }}>
           <Text
             style={[{ textAlign: 'right', color: colors.primaryYellow100, fontSize: 15 }]}
             onPress={handleRedirect}
           >
-            Discover More
+            {t('dashboard.more')}
           </Text>
         </View>
       </View>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 
 import TextInput from 'src/common/text-input'
@@ -16,19 +17,20 @@ const Password = ({
   passwordError,
   confirmPasswordError
 }: PasswordProps) => {
+  const { t } = useTranslation()
   return (
     <View>
-      <Typography text="Bacon ipsum dolor amet kielbasa filet mignon biltong hamburger tri-tip sirloin." />
+      <Typography text={t('password.text')} />
       <TextInput
-        label="Please, add your password"
-        placeholder="Enter Password"
+        label={t('password.input.label')}
+        placeholder={t('password.input.placeholder')}
         type="password"
         onChange={setPassword}
         errorMessage={passwordError}
       />
       <TextInput
-        label="Please, confirm your password"
-        placeholder="Confirm Password"
+        label={t('password.confirm.input.label')}
+        placeholder={t('password.confirm.input.placeholder')}
         type="password"
         onChange={setConfirmPassword}
         errorMessage={confirmPasswordError}
