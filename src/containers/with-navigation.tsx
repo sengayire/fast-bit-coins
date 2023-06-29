@@ -6,6 +6,8 @@ import { View } from 'react-native'
 import CommonButton from 'src/common/button'
 import { NavigationProps } from 'src/types/screens'
 
+import { styles } from './styles'
+
 interface WithNavigationContainerProps {
   children: ReactNode
   navigateTo?: string
@@ -27,17 +29,7 @@ const WithNavigationContainer = ({
     }
   }
   return (
-    <View
-      style={{
-        paddingHorizontal: 20,
-        paddingTop: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: '100%',
-        paddingVertical: 28
-      }}
-    >
+    <View style={styles.container}>
       {children}
       <CommonButton
         title={t('language.select.continue.btn')}

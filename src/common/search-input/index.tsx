@@ -3,7 +3,8 @@ import React from 'react'
 import { SvgUri } from 'react-native-svg'
 
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
-import { colors } from 'src/utils/colors'
+
+import { styles } from './styles'
 
 interface SearchInputProps {
   placeholder?: string
@@ -21,20 +22,11 @@ const SearchInput = ({ placeholder, onTextChange }: SearchInputProps) => {
   return (
     <Input
       placeholder={placeholder}
-      inputContainerStyle={{
-        borderWidth: 1,
-        borderRadius: 5,
-        borderColor: colors.primaryBlack100
-      }}
+      inputContainerStyle={styles.inputContainer}
       inputStyle={{ padding: 18 }}
-      labelStyle={{
-        color: colors.primaryBlack70,
-        fontWeight: '600',
-        fontSize: 16,
-        lineHeight: 24
-      }}
+      labelStyle={styles.inputLabel}
       leftIcon={<SvgUri uri={svg?.uri ?? ''} />}
-      leftIconContainerStyle={{ width: 21, height: 21, padding: 18 }}
+      leftIconContainerStyle={styles.iconContainer}
       onChangeText={(text) => handleTextChange(text)}
     />
   )

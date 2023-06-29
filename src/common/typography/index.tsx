@@ -2,27 +2,15 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import commonStyles from 'src/styles'
 
+import { styles } from './styles'
+
 interface TypographyProps {
   text: string
 }
 const Typography = ({ text }: TypographyProps) => {
   return (
     <View>
-      <Text
-        style={[
-          commonStyles.textColorPrimaryBlack70,
-          {
-            paddingHorizontal: 48,
-            paddingVertical: 19,
-            textAlign: 'center',
-            fontSize: 14,
-            lineHeight: 18,
-            fontWeight: 400
-          }
-        ]}
-      >
-        {text}
-      </Text>
+      <Text style={[commonStyles.textColorPrimaryBlack70, { ...styles.text }]}>{text}</Text>
     </View>
   )
 }

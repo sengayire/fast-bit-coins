@@ -14,6 +14,8 @@ import SelectInput from 'src/common/select-input'
 import { EMAIL_SCREEN_NAME } from 'src/constants/screens'
 import { NavigationProps } from 'src/types/screens'
 
+import { styles } from './styles'
+
 const languagesList = [
   {
     key: 'en',
@@ -35,27 +37,11 @@ const SelectLanguage = () => {
   const { t } = useTranslation()
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <View
-        style={{
-          width: 100,
-          height: 100,
-          marginBottom: 88
-        }}
-      >
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
         <SvgUri uri={svg?.uri} />
       </View>
-      <Text
-        style={[
-          commonStyles.textColorPrimaryYellow100,
-          {
-            fontWeight: 700,
-            lineHeight: 28,
-            fontSize: 32,
-            paddingVertical: 52
-          }
-        ]}
-      >
+      <Text style={[commonStyles.textColorPrimaryYellow100, { ...styles.text }]}>
         {t('language.select')}
       </Text>
       <SelectInput placeholder={selectedCountry} onPress={() => setIsVisible(true)} />

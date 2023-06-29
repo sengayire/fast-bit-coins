@@ -1,19 +1,17 @@
 import React from 'react'
-import { StyleSheet, View, Pressable, Text } from 'react-native'
-import { s } from 'react-native-size-matters'
+import { View, Pressable, Text } from 'react-native'
 
-import { colors } from 'src/utils/colors'
+import { styles } from './styles'
 
 interface ButtonProps {
-  status?: 'active' | 'disabled'
   title: string
   onPress?: () => void
   disabled?: boolean
 }
 
-const CommonButton = ({ status = 'active', title, onPress, disabled }: ButtonProps) => {
+const CommonButton = ({ title, onPress, disabled }: ButtonProps) => {
   return (
-    <View style={{ display: 'flex', flexDirection: 'row' }}>
+    <View style={styles.buttonContainer}>
       <Pressable
         style={disabled ? { ...styles.button, ...styles.disabled } : styles.button}
         onPress={onPress}
@@ -26,27 +24,5 @@ const CommonButton = ({ status = 'active', title, onPress, disabled }: ButtonPro
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-    elevation: 3,
-    backgroundColor: colors.primaryYellow100,
-    height: s(52)
-  },
-  disabled: {
-    backgroundColor: colors.primaryBlack10,
-    color: colors.primaryBlack20
-  },
-  title: {
-    color: colors.primaryBlack100,
-    fontWeight: '600',
-    fontSize: 21,
-    lineHeight: 32
-  }
-})
 
 export default CommonButton
