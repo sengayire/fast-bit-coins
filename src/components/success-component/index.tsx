@@ -15,7 +15,7 @@ const Success = () => {
   return (
     <View style={styles.container}>
       <View style={{ padding: 32 }}>
-        <SvgUri uri={svg.uri} />
+        <SvgUri uri={svg?.uri} />
       </View>
       <Text style={styles.successText}>{t('email.created')}</Text>
       <Text style={styles.successDescriptionText}>{t('email.text')}</Text>

@@ -53,12 +53,12 @@ const PasswordScreen = () => {
     validationSchema
   })
   useEffect(() => {
-    setFieldValue('email', user.email)
+    setFieldValue('email', user?.email)
     setFieldValue('isPasswordRequired', true)
   }, [setFieldValue, user])
 
   useEffect(() => {
-    if (user.confirmPassword) {
+    if (user?.confirmPassword) {
       ;(async () => {
         const encryptedPassword = await encrypt(user?.password)
         const encryptedConfirmPassword = await encrypt(user?.confirmPassword)

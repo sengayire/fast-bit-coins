@@ -1,0 +1,340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Should render app 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNSScreenStack
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <RNSScreen
+      collapsable={false}
+      forwardedRef={[Function]}
+      gestureResponseDistance={
+        {
+          "bottom": -1,
+          "end": -1,
+          "start": -1,
+          "top": -1,
+        }
+      }
+      nativeBackButtonDismissalEnabled={false}
+      onAppear={[Function]}
+      onDisappear={[Function]}
+      onDismissed={[Function]}
+      onHeaderBackButtonClicked={[Function]}
+      onNativeDismissCancelled={[Function]}
+      onTransitionProgress={[Function]}
+      onWillDisappear={[Function]}
+      replaceAnimation="push"
+      stackPresentation="push"
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      swipeDirection="horizontal"
+    >
+      <RNSScreenStackHeaderConfig
+        backButtonInCustomView={false}
+        backTitleVisible={true}
+        backgroundColor="#F7F8F7"
+        color="rgb(0, 122, 255)"
+        direction="ltr"
+        disableBackButtonMenu={false}
+        hidden={true}
+        hideBackButton={false}
+        largeTitleHideShadow={false}
+        title=""
+        titleColor="rgb(28, 28, 30)"
+        topInsetEnabled={false}
+        translucent={false}
+      />
+      <View
+        accessibilityElementsHidden={false}
+        importantForAccessibility="auto"
+        style={
+          {
+            "flex": 1,
+            "flexDirection": "column-reverse",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "flex": 1,
+              },
+              {
+                "backgroundColor": "#F7F8F7",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#101820",
+                "flex": 1,
+                "padding": 24,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "height": 100,
+                    "marginBottom": 88,
+                    "width": 100,
+                  }
+                }
+              />
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#FFB81C",
+                    },
+                    {
+                      "fontSize": 32,
+                      "fontWeight": 700,
+                      "lineHeight": 28,
+                      "paddingVertical": 52,
+                    },
+                  ]
+                }
+              >
+                Select your Language
+              </Text>
+              <View
+                accessibilityState={
+                  {
+                    "busy": undefined,
+                    "checked": undefined,
+                    "disabled": undefined,
+                    "expanded": undefined,
+                    "selected": undefined,
+                  }
+                }
+                accessibilityValue={
+                  {
+                    "max": undefined,
+                    "min": undefined,
+                    "now": undefined,
+                    "text": undefined,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "paddingHorizontal": 10,
+                      "width": "100%",
+                    }
+                  }
+                  testID="RNE__Input__view-wrapper"
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "borderBottomWidth": 1,
+                        "borderColor": "#E7E8E9",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "flexDirection": "row",
+                        "transform": [
+                          {
+                            "translateX": 0,
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <TextInput
+                      editable={false}
+                      onPressIn={[Function]}
+                      placeholder="English"
+                      placeholderTextColor="#86939e"
+                      style={
+                        {
+                          "color": "#242424",
+                          "flex": 1,
+                          "fontSize": 18,
+                          "minHeight": 40,
+                          "padding": 18,
+                          "shadowColor": "rgba(0, 0, 0, 0.08)",
+                          "shadowOffset": {
+                            "height": 4,
+                            "width": -2,
+                          },
+                          "shadowOpacity": 0.2,
+                          "shadowRadius": 3,
+                        }
+                      }
+                      testID="RNE__Input__text-input"
+                      underlineColorAndroid="transparent"
+                    />
+                    <View
+                      style={
+                        {
+                          "alignItems": "center",
+                          "height": 21,
+                          "justifyContent": "center",
+                          "marginVertical": 4,
+                          "paddingRight": 18,
+                          "width": 21,
+                        }
+                      }
+                    />
+                  </View>
+                  <Text
+                    style={
+                      {
+                        "color": "#ff190c",
+                        "fontSize": 12,
+                        "margin": 5,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  {
+                    "display": "flex",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  accessibilityState={
+                    {
+                      "busy": undefined,
+                      "checked": undefined,
+                      "disabled": undefined,
+                      "expanded": undefined,
+                      "selected": undefined,
+                    }
+                  }
+                  accessibilityValue={
+                    {
+                      "max": undefined,
+                      "min": undefined,
+                      "now": undefined,
+                      "text": undefined,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFB81C",
+                      "borderRadius": 5,
+                      "elevation": 3,
+                      "flex": 1,
+                      "height": 111.42857142857143,
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      {
+                        "color": "#101820",
+                        "fontSize": 21,
+                        "fontWeight": "600",
+                        "lineHeight": 32,
+                      }
+                    }
+                  >
+                    Continue
+                  </Text>
+                </View>
+              </View>
+              <RNCSafeAreaView
+                edges={
+                  [
+                    "bottom",
+                    "left",
+                    "right",
+                    "top",
+                  ]
+                }
+              >
+                <Modal
+                  animationType="slide"
+                  hardwareAccelerated={false}
+                  onRequestClose={[Function]}
+                  transparent={true}
+                  visible={false}
+                />
+              </RNCSafeAreaView>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        />
+      </View>
+    </RNSScreen>
+  </RNSScreenStack>
+</RNCSafeAreaProvider>
+`;
