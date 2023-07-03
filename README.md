@@ -4,7 +4,7 @@
 
 ### Pre-requisite:
 
-- Node should be installed in your local machine
+- Node <= 16 should be installed in your local machine
 - React native expo
 - Xcode to run the app in ios simulator
 - Android studio to run the app in android simulator
